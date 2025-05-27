@@ -15,6 +15,7 @@ const BlogCard = (blog: Props) => {
 	// const onTag = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 	// 	e.stopPropagation()
 	// }
+	console.log('CreatedAt:', blog.createdAt)
 	return (
 		<div
 			className={cn(
@@ -39,7 +40,7 @@ const BlogCard = (blog: Props) => {
 					<div className='flex items-center gap-4'>
 						<div className='flex items-center gap-2'>
 							<CalendarDays className='w-5 h-5' />
-							<p>{format(new Date(blog.createdAt), 'MMM dd, yy')}</p>
+							<p>{format(new Date(blog.createdAt), 'MMM dd, yyyy')}</p>
 						</div>
 						<Minus />
 						<div className='flex items-center gap-2'>

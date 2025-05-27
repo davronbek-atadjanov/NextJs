@@ -12,7 +12,6 @@ const TagPage = async ({ params }: { params: { slug: string } }) => {
 				<h2 className='text-center text-4xl section-title font-creteRound'>
 					<span>{tag.name}</span>
 				</h2>
-
 				<div className='flex gap-1 items-center mt-4'>
 					<Home className='w-4 h-4' />
 					<Link

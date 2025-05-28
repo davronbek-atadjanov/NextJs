@@ -2,7 +2,7 @@
 import { cn, getReadingTime } from '@/lib/utils'
 import { IBlog } from '@/types'
 import { format } from 'date-fns'
-import { CalendarDays, Clock, Dot, Minus } from 'lucide-react'
+import { CalendarDays, Clock, Dot, Layers2, Minus, Tag } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Badge } from '../ui/badge'
@@ -12,10 +12,6 @@ interface Props extends IBlog {
 }
 
 const BlogCard = (blog: Props) => {
-	// const onTag = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-	// 	e.stopPropagation()
-	// }
-	console.log('CreatedAt:', blog.createdAt)
 	return (
 		<div
 			className={cn(
@@ -73,10 +69,19 @@ const BlogCard = (blog: Props) => {
 							{blog.tags.map(tag => (
 								<Link href={`/tags/${tag.slug}`} key={tag.slug}>
 									<Badge variant={'secondary'} role='button'>
+										<Tag className='w-3 h-3 me-2' />
 										{tag.name}
 									</Badge>
 								</Link>
 							))}
+						</div>
+						<div className='flex items-center gap-2'>
+							<Link href={`/categories/${blog.category.slug}`}>
+								<Badge variant={'outline'} role='button'>
+									<Layers2 className='w-3 h-3 me-2' />
+									{blog.category.name}
+								</Badge>
+							</Link>
 						</div>
 					</div>
 				</div>

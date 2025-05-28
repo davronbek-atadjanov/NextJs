@@ -23,6 +23,10 @@ export const getBlogs = async () => {
 					name
 					slug
 				}
+				category {
+					name
+					slug
+				}
 				image {
 					url
 				}
